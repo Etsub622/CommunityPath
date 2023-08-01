@@ -1,0 +1,16 @@
+class Solution:
+    def judgeSquareSum(self, c: int) -> bool:
+        n = int(math.sqrt(c))
+        checker = []
+        for i in range(n + 1):
+            checker.append(i * i)
+
+        l, r = 0, len(checker) - 1
+        while l <= r:
+            if checker[l] + checker[r] == c:
+                return True
+            elif checker[l] + checker[r] < c:
+                l += 1
+            else:
+                r -= 1
+        return False
