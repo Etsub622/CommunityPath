@@ -1,0 +1,20 @@
+class Solution:
+    def maxCoins(self, piles: List[int]) -> int:
+        piles.sort()
+        output=0
+        n=len(piles)-1
+        sum=[]
+        i=n
+        output=0
+        m=len(piles)//3
+        while i != 0:
+            if len(piles)%2==0:
+                if i%2==0:
+                    sum.append(piles[i]) 
+            elif len(piles)%2!=0 :
+                if i%2!=0:
+                    sum.append(piles[i])
+            i-=1 
+        for i in sum[:m]:
+            output+=i
+        return output  
