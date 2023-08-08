@@ -1,0 +1,23 @@
+class Solution:
+    def pivotIndex(self, nums: List[int]) -> int:
+        prefixSum=[]
+        curr=0
+        n=len(nums)
+        for i in nums:
+            curr+=i
+            prefixSum.append(curr)
+
+        for i in range(n):
+            if i==0:
+               L=0
+            else:
+                L=prefixSum[i-1]
+
+            if i==n-1:
+                R=0 
+            else:
+                R=prefixSum[n-1]-prefixSum[i]
+
+            if L==R:
+                return i
+        return -1 
