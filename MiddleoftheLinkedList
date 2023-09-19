@@ -1,0 +1,12 @@
+class Solution:
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        current=head
+        count=0
+        while(current!=None):
+            count+=1
+            current=current.next
+        n=(count//2)
+        list=head
+        for i in range(n):
+            list=list.next
+        return list
