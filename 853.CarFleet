@@ -1,0 +1,16 @@
+class Solution:
+    def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
+        cars = sorted(zip(position, [(target - pos) / spd for pos, spd in zip(position, speed)]), reverse=True)
+        times = [time for position, time in cars]
+        
+        if len(position) == 1:
+            return 1
+
+        counter = 0 
+        max_time = 0
+
+        for i in range(len(times)):
+            if times[i] > max_time:
+                max_time = times[i]
+                counter += 1 
+        return counter
