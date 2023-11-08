@@ -1,0 +1,8 @@
+class Solution:
+    def arrayChange(self, nums: List[int], operations: List[List[int]]) -> List[int]:
+        for i,new in enumerate(operations):
+            target=new[0]
+            if target in nums:
+                idx=nums.index(target)
+                nums[idx]=new[1]
+        return nums 
